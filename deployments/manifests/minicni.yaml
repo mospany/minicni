@@ -100,7 +100,7 @@ spec:
         # This container installs the minicni binary
         # and CNI network config file on each node.
         - name: install-minicni
-          image: quay.io/morvencao/install-minicni:0.1.0
+          image: docker.io/mospany/install-minicni:0.1.0
           imagePullPolicy: Always
           env:
             # Pod name
