@@ -10,7 +10,7 @@ spec:
     ports:
     - containerPort: 80
   nodeSelector:
-    beta.kubernetes.io/os: linux
+    kubernetes.io/os: linux
     role: master
   tolerations:
     # Make sure this pod gets scheduled on all nodes.
@@ -36,7 +36,7 @@ spec:
       - "-c"
       - "sleep 10000"
   nodeSelector:
-    beta.kubernetes.io/os: linux
+    kubernetes.io/os: linux
     role: master
   tolerations:
     # Make sure this pod gets scheduled on all nodes.
@@ -60,7 +60,7 @@ spec:
     ports:
     - containerPort: 80
   nodeSelector:
-    beta.kubernetes.io/os: linux
+    kubernetes.io/os: linux
     role: worker
 ---
 apiVersion: v1
@@ -77,6 +77,6 @@ spec:
       - "-c"
       - "sleep 10000"
   nodeSelector:
-    beta.kubernetes.io/os: linux
+    kubernetes.io/os: linux
     role: worker
 
