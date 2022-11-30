@@ -28,11 +28,11 @@ metadata:
   name: netshoot-master
 spec:
   containers:
-  - name: ubuntu
+  - name: centos
     image: nicolaka/netshoot:latest
     imagePullPolicy: IfNotPresent
     command:
-      - "bin/bash"
+      - "/bin/bash"
       - "-c"
       - "sleep 10000"
   nodeSelector:
@@ -69,11 +69,11 @@ metadata:
   name: netshoot-worker
 spec:
   containers:
-  - name: ubuntu
+  - name: centos
     image: nicolaka/netshoot:latest
     imagePullPolicy: IfNotPresent
     command:
-      - "bin/bash"
+      - "/bin/bash"
       - "-c"
       - "sleep 10000"
   nodeSelector:
