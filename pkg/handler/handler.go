@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"github.com/morvencao/minicni/pkg/args"
-	"github.com/morvencao/minicni/pkg/nettool"
+	"github.com/mospany/minicni/pkg/args"
+	"github.com/mospany/minicni/pkg/nettool"
 )
 
 type Handler interface {

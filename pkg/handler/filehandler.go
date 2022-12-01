@@ -7,9 +7,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/morvencao/minicni/pkg/args"
-	"github.com/morvencao/minicni/pkg/nettool"
-	"github.com/morvencao/minicni/pkg/version"
+	"github.com/mospany/minicni/pkg/args"
+	"github.com/mospany/minicni/pkg/nettool"
+	"github.com/mospany/minicni/pkg/version"
 
 	"github.com/containernetworking/plugins/pkg/ns"
 )

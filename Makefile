@@ -1,7 +1,7 @@
 # Image URL to use all building/pushing image targets;
 # Use your own docker registry and image name for dev/test by overridding the
 # IMAGE_REPO, IMAGE_NAME and RELEASE_TAG environment variable.
-IMAGE_REPO ?= quay.io/morvencao
+IMAGE_REPO ?= docker.io/mospany
 IMAGE_NAME ?= install-minicni
 CNI_NAME ?= minicni
 VERSION ?= $(shell date +v%Y%m%d)-$(shell git describe --match=$(git rev-parse --short=8 HEAD) --tags --always --dirty)
@@ -12,7 +12,7 @@ BASE_DIR := $(shell basename $(PWD))
 
 # Github host to use for checking the source tree;
 # Override this variable ue with your own value if you're working on forked repo.
-GIT_HOST ?= github.com/morvencao
+GIT_HOST ?= github.com/mospany
 
 LOCAL_OS := $(shell uname)
 ifeq ($(LOCAL_OS),Linux)
@@ -54,7 +54,7 @@ all: fmt lint test build image
 fmt: format-go
 
 format-go:
-	@$(FINDFILES) -name '*.go' \( ! \( -name '*.gen.go' -o -name '*.pb.go' \) \) -print0 | $(XARGS) goimports -w -local $(GIT_HOST)
+	$(FINDFILES) -name '*.go' \( ! \( -name '*.gen.go' -o -name '*.pb.go' \) \) -print0 | $(XARGS) goimports -w -local $(GIT_HOST)
 
 ############################################################
 # lint section
