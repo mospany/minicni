@@ -3,6 +3,7 @@ package args
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 )
 
@@ -129,6 +130,9 @@ func GetArgsFromEnv() (string, *CmdArgs, error) {
 		Args:        args,
 		StdinData:   stdinData,
 	}
+
+	log.Printf("cmd: %s, ContainerID: %s, Netns: %s, ifName: %s, Path: %s, Args: %s, StdinData: %s.\n",
+		cmd, conID, netns, ifName, path, args, string(stdinData))
 
 	return cmd, cmdArgs, nil
 }
