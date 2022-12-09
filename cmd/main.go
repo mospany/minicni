@@ -7,11 +7,18 @@ import (
 
 	"github.com/mospany/minicni/pkg/args"
 	"github.com/mospany/minicni/pkg/handler"
+	"log"
 )
 
 const (
 	IPStore = "/tmp/reserved_ips"
+	LogFile = "/var/log/minicni.log"
 )
+
+func setupLogger() {
+	logFileLocation, _ := os.OpenFile(LogFile, os.O_CREATE|os.O_APPEND|os.O_RDWR, 0644)
+	log.SetOutput(logFileLocation)
+}
 
 func init() {
 	// this ensures that main runs only on main thread (thread group leader).
@@ -21,9 +28,12 @@ func init() {
 }
 
 func main() {
+	setupLogger()
+
 	cmd, cmdArgs, err := args.GetArgsFromEnv()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "getting cmd arguments with error: %v", err)
+		log.Fatalf("getting cmd arguments with error: %v", err)
+		os.Exit(1)
 	}
 
 	fh := handler.NewFileHandler(IPStore)
